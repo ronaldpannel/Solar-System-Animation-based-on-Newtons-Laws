@@ -41,11 +41,4 @@ class Body {
     f.setMag((G * this.mass * child.mass) / (r * r));
     child.applyForce(f);
   }
-  drawText(context){
-    context.save()
-    context.fillStyle = 'white'
-    context.font = "16px Arial";
-    context.fillText(`${G}`, -120, -260);
-    context.restore()
-  }
 }

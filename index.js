@@ -4,7 +4,8 @@ const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 
 const gravityConstantSlider = document.getElementById("gravConstSlider");
-const destabilizeSlider = document.getElementById("destabilizeSlider");
+const sliderValue = document.getElementById("sliderValue");
+
 
 canvas.width = 600;
 canvas.height = 600;
@@ -37,7 +38,7 @@ for (let i = 0; i < numPlanets; i++) {
 }
 
 function animate() {
-  console.log(G);
+ 
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.save();
@@ -47,11 +48,13 @@ function animate() {
     sun.attract(planets[i]);
     planets[i].update();
     planets[i].draw(ctx);
-    planets[i].drawText(ctx)
+  
   }
   sun.draw(ctx);
 
   ctx.restore();
+
+  sliderValue.innerHTML = gravityConstantSlider.value;
 
   requestAnimationFrame(animate);
 }
